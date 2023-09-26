@@ -1,2 +1,2 @@
 # PHP_Exercise
-My Php Exercise
+My Php Exercises
