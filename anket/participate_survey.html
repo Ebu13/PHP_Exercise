@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ankete Katıl</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Ankete Katıl</h1>
+
+    <div id="participateSurveyForm">
+      <form id="participateSurvey">
+        <label for="participateSurveyID">Anket ID:</label>
+        <input type="text" id="participateSurveyID" name="survey_id" required />
+        <br />
+        <label for="participateAnswer">Cevap:</label>
+        <input type="text" id="participateAnswer" name="answer" required />
+        <br />
+        <button type="button" onclick="participateSurvey()">
+          Ankete Katıl
+        </button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

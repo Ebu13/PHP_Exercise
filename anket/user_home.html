@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Ana Sayfa</title>
+    <!-- Gerekirse stil dosyalarını ekleyebilirsiniz -->
+</head>
+<body>
+
+    <h1>Kullanıcı Ana Sayfa</h1>
+
+    <h2>Anketlerim</h2>
+
+    <ul id="surveyList">
+        <!-- Anketler buraya eklenecek -->
+    </ul>
+
+    <script src="script.js"></script>
+    <script>
+        // Kullanıcı anketlerini listeleme işlemi
+        document.addEventListener("DOMContentLoaded", function () {
+            // AJAX ile PHP API'ye istek gönderme
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (response.status === "success") {
+                        var surveys = response.surveys;
+                        var surveyList = document.getElementById("surveyList");
+
+                        surveys.forEach(function (survey) {
+                            var listItem = document.createElement("li");
+                            listItem.textContent = survey.title;
+                            surveyList.appendChild(listItem);
+                        });
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            };
+
+            xhttp.open("POST", "api.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("action=get_user_surveys&user_id=" + YOUR_USER_ID); // Kullanıcı kimliğinizi belirtin
+        });
+    </script>
+</body>
+</html>

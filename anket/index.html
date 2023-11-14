@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anket Web Sitesi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Anket Web Sitesi</h1>
+
+    <div id="registerForm">
+        <h2>Kullanıcı Kayıt</h2>
+        <form id="registerUserForm">
+            <label for="registerUsername">Kullanıcı Adı:</label>
+            <input type="text" id="registerUsername" name="username" required>
+            <br>
+            <label for="registerPassword">Şifre:</label>
+            <input type="password" id="registerPassword" name="password" required>
+            <br>
+            <button type="button" onclick="registerUser()">Kayıt Ol</button>
+        </form>
+    </div>
+
+    <div id="loginForm">
+        <h2>Kullanıcı Giriş</h2>
+        <form id="loginUserForm">
+            <label for="loginUsername">Kullanıcı Adı:</label>
+            <input type="text" id="loginUsername" name="username" required>
+            <br>
+            <label for="loginPassword">Şifre:</label>
+            <input type="password" id="loginPassword" name="password" required>
+            <br>
+            <button type="button" onclick="loginUser()">Giriş Yap</button>
+        </form>
+    </div>
+
+    <div id="userActions" style="display: none;">
+        <h2>Kullanıcı İşlemleri</h2>
+        <button onclick="showPublishSurveyPage()">Anket Yayınla</button>
+        <button onclick="showParticipateSurveyPage()">Ankete Katıl</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

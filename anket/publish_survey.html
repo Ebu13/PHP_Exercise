@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anket Yayınlama</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Anket Yayınlama</h1>
+
+    <div id="publishSurveyForm">
+      <form id="publishSurvey">
+        <label for="publishTitle">Başlık:</label>
+        <input type="text" id="publishTitle" name="title" required />
+        <br />
+        <label for="publishQuestion">Soru:</label>
+        <input type="text" id="publishQuestion" name="question" required />
+        <br />
+        <label for="publishOption1">Seçenek 1:</label>
+        <input type="text" id="publishOption1" name="option1" required />
+        <br />
+        <label for="publishOption2">Seçenek 2:</label>
+        <input type="text" id="publishOption2" name="option2" required />
+        <br />
+        <button type="button" onclick="publishSurvey()">Anketi Yayınla</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
