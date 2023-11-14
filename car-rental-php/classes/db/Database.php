@@ -1,24 +1,28 @@
 <?php
 
-class Database {
+class Database
+{
     private static $dbInstance;
 
     private $db;
 
-    public static function getInstance() {
-        if(is_null(Database::$dbInstance)) {
+    public static function getInstance()
+    {
+        if (is_null(Database::$dbInstance)) {
             self::$dbInstance = new Database();
         }
 
         return self::$dbInstance;
     }
 
-    private function __construct() {
+    private function __construct()
+    {
         try {
             $this->db = new PDO(
-                'mysql:host=127.0.0.1;dbname=car;charset=utf8',
-                'admin',
-                '13042003');
+                'mysql:host=localhost:3306;dbname=carjack;charset=utf8',
+                'root',
+                '13042003'
+            );
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, true);
         } catch (PDOException $pdo) {
@@ -26,10 +30,8 @@ class Database {
         }
     }
 
-    public function getDb() {
+    public function getDb()
+    {
         return $this->db;
     }
-
-
-
 }

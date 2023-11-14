@@ -64,7 +64,7 @@ class User {
 
     public static function doesUserExist($id) {
         $_id = self::userExists($id, "username");
-        return $_id>0?$_id:self::userExists($id, "email");
+        return $_id > 0 ? $_id : self::userExists($id, "email");
     }
 
     public static function verifyUser($id, $password) {
@@ -80,7 +80,7 @@ class User {
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            return password_verify($password, $user['password'])?$user['first_name']:false;
+            return password_verify($password, $user['password']) ? $user['first_name'] : false;
         }
 
         return false;
@@ -97,7 +97,7 @@ class User {
 
         $prepared_array = array();
         foreach ($fields as $field) {
-            $prepared_array[':'.$field] = @$addressArray[$field];
+            $prepared_array[':' . $field] = @$addressArray[$field];
         }
 
         $stmt->execute($prepared_array);
@@ -114,7 +114,7 @@ class User {
 
         $prepared_array = array();
         foreach ($fields as $field) {
-            $prepared_array[':'.$field] = @$userArray[$field];
+            $prepared_array[':' . $field] = @$userArray[$field];
         }
         $prepared_array[':password'] = password_hash($userArray['password'], PASSWORD_DEFAULT);
 
@@ -135,5 +135,4 @@ class User {
 
         return $id;
     }
-
 }
